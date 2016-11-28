@@ -1,0 +1,452 @@
+
+<!doctype html>
+<html>
+<head>
+    <title> BBC clone</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+		
+		body{
+			margin: 0;
+			font-family:sans-serif;
+		}
+		#topbar{
+			color:white;
+			background-color:#630000;
+			width: 100%;
+		}
+		.fixed-width{
+			position:relative;
+			left:35px;
+			width: 1050px;
+			height:42px;
+			margin: 0 auto;
+		}
+		#logodiv {
+			padding: 10px 20px 2px 0;
+			float:left;
+			border-right: 1px solid #CCCCCC;
+		}
+		#signInLogo{
+			float:left;
+			padding: 15px 20px 7px  20px;
+			font-weight: bold;
+			font-size:1em;
+			font-family: serif;
+			border-right: 1px solid #CCCCCC;
+		}
+		#bell{
+			padding:0 0 12px  0;
+			float:left;
+			width:0px;
+			height:30px;
+			border-right:1px solid #CCCCCC;
+		}
+		#topMenuDiv{
+			float:left;
+			padding:0;
+			
+		}
+		#topMenuDiv li{
+			float:left;
+			position:relative;
+			top:-14px;
+			padding:15px 10px 7px 15px;
+			border-right:1px solid #CCCCCC;
+			list-style:none;
+			font-weight:bold;
+			font-size:0.9em;
+		}
+		#topMenuDiv li:last-child{
+			margin-right:15px;
+		}
+		#topMenuDiv li:first-child{
+			border-left:1px solid #CCCCCC;
+		}
+		#searchDiv{
+			padding-top:10px;
+		}
+		#searchText{
+			background: #E4E4E4 url("images/searchicon.png") no-repeat right top;
+			padding:5px 0 0 0;
+			font-size:0.82em;
+		}
+		.break{
+			clear: both;
+			margin:0;
+			padding:0;
+			
+		}
+		#newsbar{
+			color:white;
+			background-color:#990000;
+			width:100%;
+			height:85px;
+		}
+		#newsbar p{
+		margin:0;
+		float:left;
+		}
+		#newsHeader{
+			font-size:2.7em;
+			font-family:sans-serif;
+		}
+		#uk{
+			font-size:0.6em;
+			padding-left:10px;
+			font-family:sans-serif;
+		}
+		#rss{
+			float:right;
+			margin-top: 25px;
+			margin-right:75px;
+		}
+		#rss img{
+			height:14px;
+		}
+		#topicMenu{
+			position:relative;
+			top:-17px;
+		}
+		#topicMenu ul{
+			margin-right:75px;
+			padding:0;
+			height:25px;
+			background-color:#3E0C0D;
+		}
+		#topicMenu li{
+			font-family: Arial, Helmet, Freesans, sans-serif;
+			line-height: 16px;
+			font-size:0.8em;
+			float:left;
+			height:15px;
+			list-style:none;
+			margin-top:4px;
+			padding:0 7px 0 7px;
+			border-right:1px solid #5B2D2F;
+		}
+		#topicMenu ul :last-child{
+			padding-right: 0;
+			border: none;
+		}
+		#topicMenu ul :nth-child(4){
+			background-color:#EDEDED;
+			color:#535350;
+			height:20px;
+			padding-top:5px;
+			position:relative;
+			top:-4px;
+		}
+		#topicMenu2{
+			position:relative;
+			top:-33px;
+		}
+		#topicMenu2 ul{
+			margin-right:75px;
+			padding:0;
+			height:22px;
+			color: #505050;
+			background-color:#EDEDED;
+		}
+		#topicMenu2 li{
+			line-height: 16px;
+			font-size:0.75em;
+			float:left;
+			height:15px;
+			list-style:none;
+			margin-top:4px;
+			padding:0 11px 0 11px;
+			border-right:1px solid #5B2D2F;
+		}
+		#topicMenu2 ul :last-child{
+			padding-right: 0;
+			border: none;
+		}
+		#content{
+			font-size: 1em;
+			color:#505050;
+			font-weight: bold;
+			font-family: Arial, Helmet, Freesans, sans-serif;
+			letter-spacing: -1px;
+			line-height: 34px;
+			text-rendering: optimizeLegibility;
+			width:650px;
+			position:relative;
+			top:-38px;
+			
+		}
+		.date{
+			color:#505050;
+			position: relative;
+			top:-20px;
+		}
+		.bold{
+			font-weight:bold;
+		}
+		.smallparagraphs{
+			font-family:sans-serif;
+			line-height:15px;
+			text-align:justify;
+			font-size:0.9em;
+			width:640px;
+			position: relative;
+			top:-20px;
+		}
+		.readmorelist li{
+			font-family:sans-serif;
+			font-weight:bold;
+			font-size:0.8em;
+			list-style: none;
+			display:inline-block;
+			width: 300px;
+			color:#1F4F82;
+			position: relative;
+			left:-40px;
+		}
+		.share{
+			color:#505050;
+			font-family:sans-serif;
+			position: relative;
+			top:-20px;
+			width:640px;
+		}
+		.share img{
+			display: inline-block;
+			width:16px;
+			height:16px;
+			padding-right:30px;
+			position: relative;
+			top:-10px;
+		}
+		#watch{
+			float:right;
+			width:310px;
+			height:700px;
+			background-color:#EDEDED;
+			position: relative;
+			top:-470px;
+			left:-75px;
+			margin:0;
+		}
+		#watch h2{
+			color:#505054;
+			padding:0 0 0 7px;
+			font-size:1.5em;
+			font-weight:bold;
+		}
+		#watch ul{
+			padding-left:7px;;
+			margin:0;
+		}
+		#watch li{
+			list-style:none;
+			display: inline-block;
+			padding-right:5px;
+			color:#1F4F82;
+			font-size:0.8em;
+			font-weight:bold;
+		}
+		#watch li img{
+			width:100px;
+		}
+		#watch li:nth-child(2){
+			width:150px;
+			position:relative;
+			top: -25px;
+		}
+		#watch li:nth-child(3){
+			float:right;
+			width:10px;
+			color:#505050;
+			opacity:0.6;
+			font-weight:bold;
+			font-size:1.4em;
+			padding-right:20px;
+		}
+		a{
+		text-decoration:none;
+		}
+		a:hover{
+			text-decoration:underline;
+		}
+		#footer{
+			width:650px;
+			color:#505050;
+			font-weight:bold;
+		}
+		#footer ul{
+			margin:0;
+			padding:0;
+			display:inline-block;
+		}
+		#footer li{
+			list-style:none;
+			margin-right:40px;
+			color:#1F4F82;
+		}
+		#headerleft{
+			float:right;
+			width:400px;
+			position:relative;
+			top:-120px;
+			font-weight:bold;
+			color:#505050;
+		}
+		#headerleft ul{
+			margin:0;
+			padding:0;
+		}
+		#headerleft li{
+			list-style:none;
+			display:block;
+			color:#1F4F82
+		}
+		footer{
+		position:relative;
+		top:-450px;
+		padding-bottom:35px;
+		border-bottom:1px solid #4C4C4C;
+		}
+		#lastdiv{
+			position:relative;
+			top:-540px;
+			display: inline-block;
+			
+		}
+		#last{
+		width:400px;
+		float:left;
+		color:#4C4C4C;
+		}
+		.last{
+			float:right;
+			width:200px;
+			
+		}
+		.last li{
+			position:relative;
+			top:-20px;
+			list-style-type:none;
+			color:#734C94;
+			font-size:0.8em;
+			}
+    </style>    
+</head>
+
+<body>
+	<div id = "container"> 
+		<div id = "topbar">
+			<div class="fixed-width">
+				<div id = "logodiv"><img id = "BBC" src="images/bbc.png" width="80" height="25" alt="BBC"/>
+				</div>
+				<div id= "signInLogo"><img src="images/signInIcon.png" width="10" height="13"/>
+				Sign-in
+				</div>
+				<div id="bell"> <img  src="images/bell.png"/> </div>
+				<div id="topMenuDiv">
+						<ul><li>News</li>
+							<li>Sport</li>
+							<li>Weather</li>
+							<li>iPlayer</li><li>Future</li>
+							<li>TV</li>
+							<li>Radio</li>
+							<li>More...</li></ul>
+				</div>
+				<div id="searchDiv">
+					<input id = "searchText"type = "text" placeholder ="Search"/> 
+				</div>
+			</div>
+		</div>
+		
+		<div id = "newsbar"><div class="break"></div>
+			<div class="fixed-width"><p id="newsHeader">NEWS<span id="uk">UK</span></p>
+				<div id="rss">RSS <img src="images/rss.png"/></div>
+				<div class="break"></div>
+				<div id="topicMenu">
+					<ul>
+					<li>Home</li><li>Us & Canada</li><li>Latin America</li><li>UK</li>
+					<li>Africa</li><li>Asia</li><li>Europe</li><li>Mid-East</li><li>Business</li><li>Health</li><li>Sci/Inviroment</li><li>Tech</li><li>Entertainment & Arts</li><li>Video</li>
+					</ul>
+				
+				</div>
+				<div class="break"></div>
+				<div id="topicMenu2">
+					<ul>
+						<li>England</li><li>NorthIreland</li><li>Scotland</li><li>Wales</li><li>UK Politics</li><li>Education</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+			<div class="break"></div>
+			<div class="fixed-width">
+				<div id = "content"><h1>Titanic letter returned to Belfast, 100 years after being sent</h1>
+				</div>
+				<div class ="date"><span class ="bold">22 June 2012 </span>Last updated at 03:29 ET 
+				</div>
+				<div class = "smallparagraphs"><p>One of the last letters written on board the doomed liner Titanic has been returned to Belfast - one hundred years after it was first sent.</p>
+					<p>It was written by one of the ship's surgeons, Dr John Simpson, to his mother at their family home</p>
+					<p>The long-lost letter recently turned up in America, but was sold at auction in New York for £25,000 and has now been brought back to Belfast.</p>
+					<p>Mark Simpson - a descendent of Dr John Simpson - reports.</p>
+					<h3 class="readmore">Read More</h3>
+					<ul class="readmorelist">
+						<li><a href="">Titanic letter is home in Belfast</a></li><li><a href="">Titanic rescue medals auctioned</a></li><li><a href="">Billionaire to build Titanic II</a></li>
+					</ul>
+				</div>
+				<div class="share"><h2>Share this page <hr></h2>
+					<img src="images/email.png"/>
+					<img src= "images/twitter.png"/>
+				</div>
+				<div class="break"></div>
+				<div id="watch">
+					<h2> Most watched/listened </h2>
+					<ul> <li><img src= "images/v1.png"/></li> <li><a href="">Driver dodges road plunge in US</a></li> <li>1</li> </ul>
+					<ul> <li><img src= "images/v2.png"/></li> <li><a href="">Road built around house in China</a></li> <li>2</li> </ul>
+					<ul> <li><img src= "images/v3.png"/></li> <li><a href="">'Doomsday' rumours hit French village</a></li> <li>3</li> </ul>
+					<ul> <li><img src= "images/v4.png"/></li> <li><a href="">China lands jet on first carrier</a></li> <li>4</li> </ul>
+					<ul> <li><img src= "images/v5.png"/></li> <li><a href="">Native Americans recall forced adoption trauma</a>/li> <li>5</li> </ul>
+					<ul> <li><img src= "images/v6.png"/></li> <li><a href="">One-minute World News</a></li> <li>6</li> </ul>
+					<ul> <li><img src= "images/v7.png"/></li> <li><a href="">Psy's YouTube record and more news</a></li> <li>7</li> </ul>
+					<ul> <li><img src= "images/v8.png"/></li> <li><a href="">Crash pad: Car flies into house</a></li> <li>8</li> </ul>
+					<ul> <li><img src= "images/v9.png"/></li> <li><a href="">China's super-rich: Hong Weihua</a></li> <li>9</li> </ul>
+					<ul> <li><img src= "images/v10.png"/></li> <li><a href="">Deadly 100-vehicle US pile-up</a></li> <li>10</li> </ul>
+				</div>
+					<div class="break"></div>
+				<footer>
+				<div id="footer">
+					<h2>Services</h2>
+					
+					<ul>	<li><img src="images/mobile.png"/></li><li>Mobile</li>					</ul>
+					<ul>	<li><img src="images/tv.png.png"/><li>Connected TV</li>					</ul>
+					<ul>	</li> <li><img src="images/newsfeed.png.png"/><li>News feeds</li>		</ul>
+					<ul>	</li> <li><img src="images/alerts.png"/></li><li>Alerts</li>			</ul>
+					<ul>	<li><img src="images/emailnews.png"/></li><li>Email news</li>			</ul>
+					</div>
+				<div id = "headerleft">	
+					<h2>About BBC News</h2>
+					<ul>
+						<li>Editors' blog</li> <li>BBC College of Journalism</li> <li>News sources</li> <li>Media Action</li>
+					</ul>
+				</div>
+				</footer>
+				<div id = "lastdiv">
+					<div id= "last">
+						<img src = "images/bbcblack.png">
+						<p><strong>BBC © 2012 </strong>The BBC is not responsible for the content of external sites. Read more.</p>
+					</div>
+					<div class = "last"><ul><li><a href="">About the BBC</a></li><li><a href="">BBC Help</a></li><li><a href="">Accessibility Help</a></li><li><a href="">Contact Us</a></li></ul></div>
+					<div class = "last"><ul><li><a href="">Terms of Use</a> </li><li><a href="">Privacy </a></li><li><a href="">Cookies </a> </li><li><a href="">Parental Guidance</a></li></ul></div>
+					
+					<div class = "last"><ul><li><a href="">Mobile site</a> </li><li><a href="">Advertise With Us</a></li><li><a href="">Ad Choices</a></li></ul></div>
+				</div>
+			</div>
+			
+		</div>
+</div>
+</body>
+</html>                                           
+         		                                     
+                                 
+						                      
